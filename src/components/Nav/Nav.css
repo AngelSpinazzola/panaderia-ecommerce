@@ -1,0 +1,154 @@
+.nav ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+}
+
+.nav a:hover {
+    background-color: rgba(245, 230, 211, 0.2);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: #e63946;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 3px 7px;
+    border-radius: 12px;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.3s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cart-button {
+    position: relative;
+    background-color: var(--primary);
+    color: var(--bg-dark);
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cart-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 768px) {
+    .nav ul {
+        gap: 0.5rem;
+    }
+
+    .nav a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .cart-button {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .cart-button svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 580px) {
+    .nav ul {
+        gap: 0.35rem;
+    }
+
+    .nav a {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.8rem;
+    }
+
+    .cart-button {
+        padding: 0.45rem 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav ul {
+        gap: 0.25rem;
+    }
+
+    .nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .cart-button {
+        padding: 0.4rem;
+    }
+
+    .cart-button svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cart-badge {
+        font-size: 0.65rem;
+        padding: 2px 5px;
+        top: -4px;
+        right: -4px;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav ul {
+        gap: 0.2rem;
+    }
+
+    .nav a {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.7rem;
+        letter-spacing: 0;
+    }
+}
