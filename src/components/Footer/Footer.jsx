@@ -1,3 +1,8 @@
+import logo from "../../assets/images/logo-footer.jpg";
+import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import { FaGithub } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import "./Footer.css";
 
 export const Footer = () => {
@@ -5,7 +10,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>La Porteña</h3>
+          <img src={logo} alt="La Porteña" className="logo-img" />
           <p>El sabor del campo en cada pan.</p>
         </div>
 
@@ -18,25 +23,37 @@ export const Footer = () => {
 
         <div className="footer-section">
           <h4>Contacto</h4>
-          <p>📍 Av. Ejemplo 1234, Buenos Aires</p>
-          <p>📞 (011) 1234-5678</p>
-          <p>✉️ info@panaderia.com</p>
+          <p><FiMapPin /> Av. Ejemplo 1234, Buenos Aires</p>
+          <p><FiPhone /> (011) 1234-5678</p>
+          <p><FiMail /> info@panaderia.com</p>
+
         </div>
 
         <div className="footer-section">
-          <h4>Síguenos</h4>
+          <h4>Seguínos en</h4>
           <div className="social-links">
-            <a href="#" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            <a href="#" aria-label="Facebook"><FaFacebook /></a>
+            <a href="#" aria-label="Instagram"><FaInstagram /></a>
+            <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
+
         </div>
       </div>
 
       <div className="footer-bottom">
         <p>&copy; 2025 La Porteña. Todos los derechos reservados.</p>
-        <p className="footer-creator">Creado con ❤️ por Angel</p>
+        <p className="footer-creator">
+          Creado con <FaHeart className="heart-icon" /> por
+          <a
+            href="https://github.com/AngelSpinazzola"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Angel <FaGithub className="github-icon" />
+          </a>
+        </p>
       </div>
+      
     </footer>
   );
 };

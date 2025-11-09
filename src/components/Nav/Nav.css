@@ -1,159 +1,121 @@
-.nav ul {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+.nav {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-.nav a {
-    display: block;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: 1rem;
-    white-space: nowrap;
-    letter-spacing: 0.3px;
+/* Contenido principal */
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.nav a:hover {
-    background-color: rgba(245, 230, 211, 0.2);
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
 }
 
-.cart-badge {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background-color: #e63946;
-    color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 3px 7px;
-    border-radius: 12px;
-    min-width: 20px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: popIn 0.3s ease;
+.logo-img {
+  height: 60px;
+  width: auto;
 }
 
-@keyframes popIn {
-    0% {
-        transform: scale(0);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+.nav-links {
+  display: flex;
+  align-items: stretch; 
+  gap: 2rem;
+  list-style: none;
+  margin-left: 10rem;
+  height: 100%;
 }
 
-.cart-button {
-    position: relative;
-    background-color: var(--primary);
-    color: var(--bg-dark);
-    font-weight: 600;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.nav-links a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1.6rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  border-bottom: 3px solid transparent; 
+  transition: border-color 0.25s ease; 
 }
 
-.cart-button:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.nav-links a:hover {
+  border-bottom: 3px solid #d4a574; 
 }
 
-.cart-button svg {
-    width: 24px;
-    height: 24px;
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
+/* Carrito */
+.cart-btn {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-right: 1.5rem; 
+  display: flex;
+  align-items: center;
+}
+
+/* Ícono hamburguesa */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 24px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Menu Mobile desplegable */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 1rem 2rem;
+  animation: slide-down 0.25s ease;
+}
+
+.mobile-menu a {
+  padding: 0.75rem 0;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-    .nav ul {
-        gap: 0.5rem;
-    }
+  .nav-links {
+    display: none;
+  }
 
-    .nav a {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
-    }
-
-    .cart-button {
-        padding: 0.5rem 0.75rem;
-    }
-
-    .cart-button svg {
-        width: 22px;
-        height: 22px;
-    }
-}
-
-@media (max-width: 580px) {
-    .nav ul {
-        gap: 0.35rem;
-    }
-
-    .nav a {
-        padding: 0.45rem 0.65rem;
-        font-size: 0.8rem;
-    }
-
-    .cart-button {
-        padding: 0.45rem 0.65rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav ul {
-        gap: 0.25rem;
-    }
-
-    .nav a {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
-        font-weight: 600;
-        letter-spacing: 0.2px; 
-    }
-
-    .cart-button {
-        padding: 0.4rem;
-    }
-
-    .cart-button svg {
-        width: 20px;
-        height: 20px;
-    }
-
-    .cart-badge {
-        font-size: 0.65rem;
-        padding: 2px 5px;
-        top: -4px;
-        right: -4px;
-    }
-}
-
-@media (max-width: 380px) {
-    .nav ul {
-        gap: 0.2rem;
-    }
-
-    .nav a {
-        padding: 0.35rem 0.5rem;
-        font-size: 0.8rem;
-        letter-spacing: 0;
-    }
-    .cart-button {
-        padding: 0.45rem 0.6rem;
-    }
+  .burger {
+    display: flex;
+  }
 }
