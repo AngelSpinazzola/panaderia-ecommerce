@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-  /* Colores principales - tema panadería */
+  /* Colores principales */
   --primary: #d4a574;
   --primary-dark: #b88a5e;
   --secondary: #f5e6d3;
@@ -18,8 +20,8 @@
   --text-light: #8d6e63;
 
   /* Fuentes */
-  --font-display: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 * {
