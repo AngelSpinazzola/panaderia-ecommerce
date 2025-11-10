@@ -44,7 +44,7 @@ export const ItemListContainer = ({ titulo }) => {
     return (
         <section className="item-list-section">
             <div className="section-header">
-                <h1 className="section-title">{getTitle()}</h1>
+                <h3 className="section-title">{getTitle()}</h3>
                 <p className="section-subtitle">
                     {categoryId
                         ? `Descubre nuestros deliciosos productos ${categoryId}s`
