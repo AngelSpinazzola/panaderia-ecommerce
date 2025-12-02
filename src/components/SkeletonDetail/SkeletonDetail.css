@@ -1,0 +1,164 @@
+.skeleton-detail-image {
+  width: 100%;
+  height: 500px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-category {
+  width: 100px;
+  height: 32px;
+  background: #e8e8e8;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-detail-title {
+  width: 70%;
+  height: 40px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-detail-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.skeleton-line {
+  width: 100%;
+  height: 16px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-line.short {
+  width: 80%;
+}
+
+.skeleton-detail-price {
+  width: 150px;
+  height: 32px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  margin: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-detail-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 6rem;
+}
+
+.skeleton-btn {
+  height: 50px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-btn-back {
+  flex: 1;
+}
+
+.skeleton-btn-add {
+  flex: 2;
+}
+
+/* Efecto shimmer tipo Mercado Libre */
+.skeleton-detail-image::after,
+.skeleton-category::after,
+.skeleton-detail-title::after,
+.skeleton-line::after,
+.skeleton-detail-price::after,
+.skeleton-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton-category::after {
+  animation-delay: 0.05s;
+}
+
+.skeleton-detail-title::after {
+  animation-delay: 0.1s;
+}
+
+.skeleton-line::after {
+  animation-delay: 0.15s;
+}
+
+.skeleton-detail-price::after {
+  animation-delay: 0.2s;
+}
+
+.skeleton-btn::after {
+  animation-delay: 0.25s;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeleton-detail-image {
+    height: 350px;
+  }
+
+  .skeleton-detail-title {
+    height: 32px;
+  }
+
+  .skeleton-detail-actions {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .skeleton-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .skeleton-detail-image {
+    height: 280px;
+  }
+
+  .skeleton-detail-title {
+    height: 28px;
+    width: 80%;
+  }
+
+  .skeleton-detail-actions {
+    margin-top: 1.5rem;
+  }
+}
