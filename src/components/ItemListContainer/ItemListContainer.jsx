@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { ItemList } from "../ItemList/ItemList";
 import { SkeletonList } from "../SkeletonList/SkeletonList";
 import { getProducts } from "../../services/products";
@@ -10,7 +10,15 @@ export const ItemListContainer = ({ titulo }) => {
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
 
+    const validCategories = ["dulce", "salado"];
+    const isInvalidCategory = categoryId && !validCategories.includes(categoryId);
+
     useEffect(() => {
+        if (isInvalidCategory) {
+            setLoading(false);
+            return;
+        }
+
         setLoading(true);
 
         getProducts()
@@ -29,7 +37,11 @@ export const ItemListContainer = ({ titulo }) => {
                 console.log(err);
                 setLoading(false);
             });
-    }, [categoryId]);
+    }, [categoryId, isInvalidCategory]);
+
+    if (isInvalidCategory) {
+        return <Navigate to="/" replace />;
+    }
 
     const getTitle = () => {
         if (categoryId === "dulce") return "Productos dulces";
@@ -39,7 +51,6 @@ export const ItemListContainer = ({ titulo }) => {
 
     return (
         <>
-            {/* Hero solo se muestra cuando NO hay categoría seleccionada */}
             {!categoryId && (
                 <section className="hero-section">
                     <picture>
