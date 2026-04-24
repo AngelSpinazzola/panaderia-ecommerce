@@ -5,6 +5,7 @@
     height: 400px;
     position: relative;
     overflow: hidden;
+    margin-top: -82px;
     margin-bottom: 3rem;
 }
 
@@ -178,9 +179,6 @@
 }
 
 @media (max-width: 480px) {
-    .hero-section {
-        height: 350px;
-    }
 
     .hero-title {
         font-size: 3.5rem;

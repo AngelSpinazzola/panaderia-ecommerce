@@ -174,7 +174,7 @@
 
 @media (max-width: 768px) {
     .product-detail {
-        padding: 2rem 1rem;
+        padding: 0.5rem 1rem 2rem;
     }
 
     .product-detail-container {
@@ -233,7 +233,7 @@
 
 @media (max-width: 480px) {
     .product-detail {
-        padding: 4rem 1rem;
+        padding: 0 0.75rem 2rem;
     }
 
     .product-detail-image {
