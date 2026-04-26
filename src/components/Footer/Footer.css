@@ -70,7 +70,7 @@
 .footer-bottom p {
     margin: 0.5rem 0;
     font-size: 0.9rem;
-    color: #b88a5e;
+    color: #cecbc9;
 }
 
 .footer-creator {
@@ -84,19 +84,6 @@
 
 .footer-creator a:hover {
     color: #e8c18a;
-}
-
-.github-icon {
-  margin-left: 6px;
-  font-size: 1.2rem;
-  vertical-align: middle;
-}
-
-.heart-icon {
-  color: #e2412c;
-  font-size: 0.95rem;
-  margin: 0 6px;
-  vertical-align: middle;
 }
 
 .footer-creator a:hover .heart-icon {

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { TbShoppingCart } from "react-icons/tb";
 import { IoLogOutOutline, IoClose } from "react-icons/io5";
 import { IoChevronForward } from "react-icons/io5";
@@ -18,12 +18,16 @@ export const Nav = () => {
   const { user, logout } = useAuthContext();
   const { getTotalItems } = useCartContext();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -40,7 +44,7 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className={`nav${scrolled ? " nav--scrolled" : ""}`}>
+      <nav className={`nav${!isHome || scrolled ? " nav--scrolled" : ""}`}>
         <div className="nav-inner">
 
           <div className="nav-left">

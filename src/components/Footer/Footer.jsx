@@ -42,16 +42,6 @@ export const Footer = () => {
 
       <div className="footer-bottom">
         <p>&copy; 2025 La Porteña. Todos los derechos reservados.</p>
-        <p className="footer-creator">
-          Creado con <FaHeart className="heart-icon" /> por
-          <a
-            href="https://github.com/AngelSpinazzola"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Angel <FaGithub className="github-icon" />
-          </a>
-        </p>
       </div>
       
     </footer>
