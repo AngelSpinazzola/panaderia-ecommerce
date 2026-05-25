@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(tree:*)",
-      "WebFetch(domain:panaderia-ecommerce.vercel.app)"
+      "WebFetch(domain:panaderia-ecommerce.vercel.app)",
+      "Bash(npm run *)",
+      "Bash(git restore *)"
     ]
   }
 }

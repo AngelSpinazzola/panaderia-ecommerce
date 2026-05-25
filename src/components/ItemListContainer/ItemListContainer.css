@@ -1,32 +1,50 @@
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+/* ============================================================
+   HERO + Listado · coherencia bakery
+   ============================================================ */
 
 .hero-section {
     width: 100%;
-    height: 400px;
+    height: 440px;
     position: relative;
     overflow: hidden;
     margin-top: -82px;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
+    background: var(--bg-dark);
+}
+
+/* Festón inferior tipo papel decorativo de panadería */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 50px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'><path d='M0,0 A50,50 0 0 1 100,0 L100,50 L0,50 Z' fill='%23faf3e7'/></svg>");
+    background-size: 100px 50px;
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    pointer-events: none;
+    z-index: 3;
+    filter: drop-shadow(0 -1px 0 rgba(139, 69, 19, 0.06));
 }
 
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center 38%;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(37, 37, 37, 0.35) 0%,
-        rgba(37, 37, 37, 0.15) 40%,
-        rgba(37, 37, 37, 0.45) 100%
+        rgba(44, 24, 16, 0.45) 0%,
+        rgba(44, 24, 16, 0.2) 50%,
+        rgba(44, 24, 16, 0.5) 100%
     );
 }
 
@@ -34,33 +52,102 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -54%);
     text-align: center;
-    color: white;
+    color: #fff8e7;
     z-index: 2;
-    width: 90%;
-    max-width: 800px;
+    width: 92%;
+    max-width: 760px;
+    padding: 0 1rem;
+}
+
+/* Eyebrow tipo letrero impreso */
+.hero-content::before {
+    content: "panadería · est. 2018 · buenos aires";
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: rgba(255, 248, 231, 0.75);
+    margin-bottom: 1.4rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed rgba(255, 248, 231, 0.25);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-title {
-    font-family: "Dancing Script", cursive;
-    font-size: 4.5rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-weight: 500;
     margin-bottom: 1rem;
-    text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.7);
-    letter-spacing: 1px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #fff8e7;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.6);
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    font-weight: 400;
+    color: rgba(255, 248, 231, 0.88);
     line-height: 1.6;
+    max-width: 50ch;
+    margin: 0 auto;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* ===== Headers de sección ===== */
+
+.products-header {
+    text-align: center;
+    margin: 3.5rem auto 1.5rem;
+    padding: 0 1rem;
+    max-width: 720px;
+}
+
+.products-header::before {
+    content: "la vidriera del día";
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: var(--stamp);
+    margin-bottom: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px dashed rgba(176, 58, 46, 0.35);
+    border-radius: 999px;
+}
+
+.products-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--ink);
+    margin: 0 0 0.35rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.products-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink-soft);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 48ch;
+    margin: 0 auto;
+}
+
+/* ===== Sección listado ===== */
+
 .item-list-section {
-    padding-top: 2.5rem;
-    padding-bottom: 5rem;
+    padding: 1rem 0 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,137 +155,115 @@
 
 .section-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem auto 1.5rem;
     padding: 0 1rem;
+    max-width: 720px;
+}
+
+.section-header::before {
+    content: "categoría";
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--stamp);
+    margin-bottom: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    border: 1px dashed rgba(176, 58, 46, 0.35);
+    border-radius: 999px;
 }
 
 .section-title {
     font-family: var(--font-display);
-    font-size: 2rem;
-    color: #2c1810;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-    letter-spacing: -0.5px;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
 .section-subtitle {
     font-family: var(--font-body);
-    font-size: 1.2rem;
-    color: #8d6e63;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
     font-weight: 400;
-    letter-spacing: 0.3px;
-}
-
-.products-header {
-    text-align: center;
-    margin: 3rem auto 0.5rem;
-    padding: 0 1rem;
-    max-width: 800px;
-}
-
-.products-title {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: #2c1810;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.products-subtitle {
-    font-size: 1.2rem;
-    color: #2c1810;
-    font-weight: 300;
+    line-height: 1.5;
 }
 
 @keyframes pulse {
-    0%,
-    100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
-/* Responsive Design */
+/* ============ Responsive ============ */
 @media (max-width: 968px) {
     .hero-section {
-        height: 450px;
-        margin-bottom: 2.5rem;
+        height: 460px;
     }
 
-    .hero-title {
-        font-size: 3.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
+    .hero-content::before {
+        font-size: 0.65rem;
+        letter-spacing: 0.28em;
+        margin-bottom: 1.1rem;
+        padding-bottom: 0.85rem;
     }
 }
 
 @media (max-width: 768px) {
     .hero-section {
-        height: 400px;
-        margin-bottom: 2rem;
+        height: 420px;
+    }
+
+    .hero-section::after {
+        height: 32px;
+        background-size: 64px 32px;
     }
 
     .hero-image {
         object-position: center;
     }
 
-    .hero-title {
-        font-size: 2.5rem;
+    .hero-content::before {
+        font-size: 0.6rem;
+        letter-spacing: 0.24em;
+        margin-bottom: 0.9rem;
     }
 
-    .hero-subtitle {
-        font-size: 1.1rem;
+    .products-header {
+        margin: 2.5rem auto 1.25rem;
     }
 
-    .section-title {
-        font-size: 2.2rem;
-    }
-
-    .section-subtitle {
-        font-size: 1rem;
+    .products-header::before,
+    .section-header::before {
+        font-size: 0.6rem;
+        letter-spacing: 0.24em;
     }
 
     .item-list-section {
-        padding-top: 2rem;
-    }
-    .products-header {
-        margin: 2rem auto 1.5rem;
-    }
-
-    .products-title {
-        font-size: 3rem;
-    }
-
-    .products-subtitle {
-        font-size: 1.2rem;
+        padding-bottom: 3rem;
     }
 }
 
 @media (max-width: 480px) {
+    .hero-section {
+        height: 380px;
+    }
 
-    .hero-title {
-        font-size: 3.5rem;
+    .hero-content {
+        transform: translate(-50%, -52%);
+    }
+
+    .hero-content::before {
+        font-size: 0.55rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.7rem;
     }
 
     .hero-subtitle {
-        font-size: 1.5rem;
-        padding: 0 1rem;
-    }
-    .products-title {
-        font-size: 2rem;
-    }
-
-    .products-subtitle {
-        font-size: 1.3rem;
-    }
-    .section-title {
-        font-size: 1.6rem;
-    }
-    .section-subtitle {
-        font-size: 1.1rem;
+        font-size: 0.92rem;
+        padding: 0 0.5rem;
     }
 }

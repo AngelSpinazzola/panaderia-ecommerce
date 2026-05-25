@@ -1,27 +1,54 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Special+Elite&display=swap");
 
 :root {
-    /* Colores principales */
-    --primary: #d4a574;
-    --primary-dark: #b88a5e;
-    --secondary: #f5e6d3;
+    /* ===== Paleta kraft cálida ===== */
+    --primary: #c9966a;
+    --primary-dark: #a8794d;
+    --secondary: #f0e1c5;
     --accent: #8b4513;
-    --border: #e0d5c7;
+    --stamp: #b03a2e;
+    --stamp-ink: rgba(176, 58, 46, 0.78);
 
     /* Fondos */
     --bg-white: #ffffff;
-    --bg-main: #faf8f5;
-    --bg-card: #ffffff;
-    --bg-dark: #2c1810;
+    --bg-paper: #faf3e7;     /* papel kraft claro */
+    --bg-paper-2: #f5ead4;   /* papel kraft un toque más cálido */
+    --bg-kraft: #e8d6b5;     /* kraft medio */
+    --bg-card: #fffcf5;      /* tarjeta crema */
+    --bg-main: var(--bg-paper);
+    --bg-dark: #2a1d12;      /* marrón oscuro de tinta */
 
-    /* Texto */
+    /* Tintas */
+    --ink: #2c1810;
+    --ink-soft: #6b4423;
+    --ink-faded: #a08770;
+
+    /* Texto (compatibilidad) */
     --text-primary: #2c1810;
-    --text-secondary: #5d4037;
-    --text-light: #8d6e63;
+    --text-secondary: #6b4423;
+    --text-light: #a08770;
 
-    /* Fuentes */
-    --font-display: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Bordes y dashes */
+    --border: #e0cfb0;
+    --border-faint: rgba(107, 68, 35, 0.12);
+    --border-soft: rgba(107, 68, 35, 0.22);
+    --border-dashed: 1px dashed rgba(107, 68, 35, 0.32);
+
+    /* Tipografía */
+    --font-display: "Spectral", Georgia, "Times New Roman", serif;
     --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "Special Elite", "Courier New", monospace;
+
+    /* Sombras cálidas */
+    --shadow-soft: 0 1px 2px rgba(58, 40, 23, 0.04),
+                   0 8px 20px -12px rgba(58, 40, 23, 0.18);
+    --shadow-card: 0 1px 0 rgba(58, 40, 23, 0.04),
+                   0 14px 28px -18px rgba(58, 40, 23, 0.28);
+    --shadow-stamp: 0 1px 0 rgba(176, 58, 46, 0.1),
+                    0 6px 14px -6px rgba(176, 58, 46, 0.25);
+
+    /* Patrón festón blanco (para divisores hero/footer) */
+    --pattern-scallop: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'><path d='M0,0 A50,50 0 0 1 100,0 L100,50 L0,50 Z' fill='%23ffffff'/></svg>");
 }
 
 * {
@@ -37,11 +64,17 @@ html {
 
 body {
     font-family: var(--font-body);
-    color: var(--text-primary);
+    color: var(--ink);
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    background-color: var(--bg-white);
+    background-color: var(--bg-paper);
+    /* Textura sutil de papel — puntitos casi imperceptibles */
+    background-image:
+        radial-gradient(rgba(107, 68, 35, 0.04) 1px, transparent 1px),
+        radial-gradient(rgba(107, 68, 35, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px, 20px 20px;
+    background-position: 0 0, 10px 10px;
     height: 100%;
 }
 
@@ -51,68 +84,63 @@ body {
     flex-direction: column;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--ink);
 }
 
-h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-}
-
-h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-}
-
-h3 {
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-}
+h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
 
 p {
     font-family: var(--font-body);
     line-height: 1.7;
     font-size: clamp(0.9rem, 1.5vw, 1rem);
+    color: var(--ink-soft);
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-body); cursor: pointer; border: none; }
+img { max-width: 100%; display: block; }
+small { font-size: 0.875rem; line-height: 1.5; }
+
+/* ===== Utilities ===== */
+
+/* Línea de puntos al estilo "carta de panadería" */
+.dot-leaders {
+    flex: 1;
+    margin: 0 0.5rem;
+    align-self: end;
+    border-bottom: 2px dotted rgba(107, 68, 35, 0.35);
+    transform: translateY(-0.35em);
+    min-width: 24px;
 }
 
-button {
-    font-family: var(--font-body);
-    cursor: pointer;
-    border: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-small {
-    font-size: 0.875rem;
-    line-height: 1.5;
+/* Sello circular reutilizable */
+.stamp-mark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--stamp-ink);
+    color: var(--stamp);
+    background: rgba(250, 243, 231, 0.85);
+    border-radius: 50%;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    box-shadow: var(--shadow-stamp);
 }
 
 @media (max-width: 768px) {
-    html {
-        font-size: 15px;
-    }
+    html { font-size: 15px; }
 }
 
 @media (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
-
-    body {
-        line-height: 1.5;
-    }
+    html { font-size: 14px; }
+    body { line-height: 1.5; }
 }

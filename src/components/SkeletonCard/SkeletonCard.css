@@ -1,98 +1,113 @@
 .skeleton-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 .skeleton-image {
-  width: 100%;
-  height: 280px;
-  background: #e8e8e8;
-  position: relative;
-  overflow: hidden;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-kraft);
+    position: relative;
+    overflow: hidden;
 }
 
 .skeleton-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+    padding: 1.1rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    position: relative;
+}
+
+.skeleton-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 1px;
+    background-image: radial-gradient(circle, rgba(107, 68, 35, 0.25) 1px, transparent 1px);
+    background-size: 6px 1px;
+    background-repeat: repeat-x;
 }
 
 .skeleton-title {
-  height: 24px;
-  width: 70%;
-  background: #e8e8e8;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
+    height: 22px;
+    width: 65%;
+    background: var(--bg-kraft);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.4rem;
 }
 
 .skeleton-description {
-  height: 16px;
-  width: 90%;
-  background: #e8e8e8;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
+    height: 14px;
+    width: 90%;
+    background: var(--bg-kraft);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
 }
 
 .skeleton-price {
-  height: 20px;
-  width: 40%;
-  background: #e8e8e8;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  position: relative;
-  overflow: hidden;
+    height: 26px;
+    width: 35%;
+    background: var(--bg-kraft);
+    border-radius: 2px;
+    margin-top: 0.6rem;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Efecto shimmer/shine tipo Mercado Libre */
+/* Shimmer cálido (fade dorado) */
 .skeleton-image::after,
 .skeleton-title::after,
 .skeleton-description::after,
 .skeleton-price::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  animation: shimmer 1.5s infinite;
-}
-
-.skeleton-description::after {
-  animation-delay: 0.1s;
-}
-
-.skeleton-price::after {
-  animation-delay: 0.2s;
-}
-
-@keyframes shimmer {
-  0% {
+    content: "";
+    position: absolute;
+    inset: 0;
     left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 244, 220, 0.55),
+        transparent
+    );
+    animation: shimmer-warm 1.6s infinite;
 }
 
-@media (max-width: 768px) {
-  .skeleton-image {
-    height: 220px;
-  }
+.skeleton-description::after { animation-delay: 0.1s; }
+.skeleton-price::after { animation-delay: 0.2s; }
 
-  .skeleton-content {
-    padding: 1rem;
-  }
+@keyframes shimmer-warm {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@media (max-width: 480px) {
+    .skeleton-image {
+        aspect-ratio: 1 / 1;
+    }
+
+    .skeleton-content {
+        padding: 0.75rem 0.75rem 0.85rem;
+        gap: 0.5rem;
+    }
+
+    .skeleton-content::before {
+        left: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .skeleton-title { height: 18px; }
+    .skeleton-description { height: 12px; }
+    .skeleton-price { height: 20px; }
 }

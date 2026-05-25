@@ -69,7 +69,8 @@ export const ItemListContainer = ({ titulo }) => {
                     <div className="hero-content">
                         <h1 className="hero-title">{titulo}</h1>
                         <p className="hero-subtitle">
-                            Productos frescos hechos con amor de cada día
+                            Pan, facturas y tortas que salen del horno dos veces al día.
+                            Masa madre, manteca de verdad y recetas que vienen de la casa.
                         </p>
                     </div>
                 </section>
@@ -77,8 +78,10 @@ export const ItemListContainer = ({ titulo }) => {
 
             {!categoryId && (
                 <div className="products-header">
-                    <h2 className="products-title">Nuestros productos</h2>
-                    <p className="products-subtitle">¡Explorá toda nuestra variedad artesanal!</p>
+                    <h2 className="products-title">Lo que está saliendo del horno</h2>
+                    <p className="products-subtitle">
+                        Pasá, mirá y elegí — todo se hornea esta semana.
+                    </p>
                 </div>
             )}
 
@@ -87,7 +90,9 @@ export const ItemListContainer = ({ titulo }) => {
                     <div className="section-header">
                         <h3 className="section-title">{getTitle()}</h3>
                         <p className="section-subtitle">
-                            ¡Descubrí nuestros deliciosos productos {categoryId}s!
+                            {categoryId === "dulce"
+                                ? "Tartas, facturas y postres — todo recién hecho."
+                                : "Panes, focaccias y empanadas — directo del horno."}
                         </p>
                     </div>
                 )}
